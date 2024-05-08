@@ -118,7 +118,7 @@ function ajouterNCartes(n) {
     }
 }
 
-ajouterNCartes(10);
+//ajouterNCartes(10);
 
 function verifierCarteDejaChoisi(nomCarte) {
     // Sélectionne tous les éléments <img> avec l'attribut src correspondant au nom de la carte
@@ -137,3 +137,24 @@ function verifierCarteDejaChoisi(nomCarte) {
 // Exemples d'appels de la fonction
 console.log(verifierCarteDejaChoisi("02_coeur")); 
 console.log(verifierCarteDejaChoisi("11_trefle")); 
+
+function mainIsCouleur() {
+    // On récupère la couleur de la première carte
+    let couleurPremiereCarte = document.querySelector('#cartes img').alt[3]; // Extrait le caractère de couleur (par exemple, 'p' pour pique)
+    // On parcourt toutes les cartes restantes
+    let cartesAffichees = document.querySelectorAll('#cartes img');
+    for (let i = 1; i < cartesAffichees.length; i++) { //On regarde si toutes les autres cartes sont de la même couleur que la premiere
+        let couleurCarte = cartesAffichees[i].alt[3]; // Extrait le caractère de couleur de chaque carte
+        // On vérifie si la couleur de la carte est différente de la couleur de la première carte
+        if (couleurCarte !== couleurPremiereCarte) {
+            return false; // La carte n'est pas une couleur
+        }
+    }
+    return true; // Toutes les cartes sont de la même couleur
+}
+
+//ajouterNCartes(5);
+for (let i = 0; i < 5; i++) {
+    ajouterCarte("0" + (i + 1) + "_carreau");
+}
+console.log(mainIsCouleur()); // Vérifie si la main est une couleur
