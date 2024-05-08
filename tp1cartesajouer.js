@@ -23,3 +23,36 @@ let conteneurCartes = document.getElementById('cartes');
 
 // Ajout de l'image au conteneur des cartes
 conteneurCartes.appendChild(imgCarte);
+
+function ajouterCarte(nomCarte) {
+    // Création de l'élément img
+    let imgCarte = document.createElement('img');
+    // Attribution de l'ID correspondant à la carte
+    imgCarte.id = nomCarte;
+    // Spécification du chemin de l'image
+    imgCarte.src = 'cartes/' + nomCarte + '.gif';
+    // Sélection de l'élément conteneur dans lequel on souhaite afficher la carte
+    let conteneurCartes = document.getElementById('cartes');
+    // Ajout de l'image au conteneur des cartes
+    conteneurCartes.appendChild(imgCarte);
+}
+ajouterCarte("08_carreau");
+
+function retournerCarteVerso(nomCarte) {
+    //On regarde si la carte existe en recherchant son élément img par son ID
+    let carte = document.getElementById(nomCarte);
+    if (carte) {
+        // On vérifie si la carte n'est pas déjà retournée côté verso
+        if (!carte.classList.contains('verso')) {
+            // Changer le chemin de l'image pour afficher le verso
+            carte.src = 'cartes/verso.gif';
+            // On ajoute une classe pour indiquer que la carte est retournée côté verso
+            carte.classList.add('verso');
+        } else {
+            console.log("La carte est déjà retournée côté verso.");
+        }
+    } else {
+        console.log("La carte avec le nom " + nomCarte + " n'existe pas.");
+    }
+}
+retournerCarteVerso("08_carreau");
