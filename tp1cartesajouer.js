@@ -87,7 +87,13 @@ function carteHasard() {
 }
 
 function afficherCarte() {
-    let carteAleatoire = carteHasard();
+    let carteAleatoire;
+
+    // Tant que la carte aléatoire est déjà affichée à l'écran, en choisir une autre
+    do {
+        carteAleatoire = carteHasard();
+    } while (verifierCarteDejaChoisi(carteAleatoire));
+
 
     // Créer un élément img pour afficher la carte
     let carteImg = document.createElement('img');
