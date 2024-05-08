@@ -158,3 +158,29 @@ for (let i = 0; i < 5; i++) {
     ajouterCarte("0" + (i + 1) + "_carreau");
 }
 console.log(mainIsCouleur()); // Vérifie si la main est une couleur
+
+function mainIsQuinte() {
+    //On sélectionne toutes les cartes affichées
+    let cartesAffichees = document.querySelectorAll('img');
+    //  tableau pour stocker les numéros des cartes
+    let numerosCartes = [];
+
+    // On prend les numéros des cartes et on les stock dans le tableau
+    cartesAffichees.forEach(carte => {
+        let numeroCarte = carte.alt.substring(0, 2); // Récupère les 2 premiers caractères du nom de la carte
+		console.log(numeroCarte.toString)
+        numerosCartes.push(parseInt(numeroCarte)); // Converti en entier et ajoute au tableau
+    });
+
+    // Trie le tableau des numéros des cartes via méthode sort
+    numerosCartes.sort((a, b) => a - b);
+	console.log("tableau trié : " + numerosCartes)
+    // Vérifier si les numéros forment une suite ordonnée sans trous
+    for (let i = 1; i < numerosCartes.length; i++) {
+        if (numerosCartes[i] !== numerosCartes[i - 1] + 1) {
+            return false; // Il y a un trou dans la suite
+        }
+    }
+    return true; // Tous les numéros forment une suite ordonnée
+}
+console.log(mainIsQuinte());
