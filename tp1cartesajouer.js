@@ -85,6 +85,16 @@ function carteHasard() {
     return carteAleatoire;
 }
 
-// Exemple d'appel de la fonction
-let carte = carteHasard();
-console.log(carte);
+function afficherCarte() {
+    let carteAleatoire = carteHasard();
+
+    // Créer un élément img pour afficher la carte
+    let carteImg = document.createElement('img');
+    carteImg.src = "cartes/" + carteAleatoire + ".gif";
+    carteImg.alt = carteAleatoire;
+
+    // Ajouter l'élément img à la div avec l'id "cartes" dans le HTML
+    document.getElementById('cartes').appendChild(carteImg);
+}
+
+afficherCarte();
