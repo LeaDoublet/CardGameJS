@@ -113,3 +113,21 @@ function ajouterNCartes(n) {
 }
 
 ajouterNCartes(10);
+
+function verifierCarteDejaChoisi(nomCarte) {
+    // Sélectionne tous les éléments <img> avec l'attribut src correspondant au nom de la carte
+    let cartesAffichees = document.querySelectorAll('img[src="cartes/' + nomCarte + '.gif"]');
+    
+    // Vérifie si des éléments ont été trouvés
+    if (cartesAffichees.length > 0) {
+        // La carte est déjà affichée à l'écran
+        return true;
+    } else {
+        // La carte n'est pas déjà affichée à l'écran
+        return false;
+    }
+}
+
+// Exemples d'appels de la fonction
+console.log(verifierCarteDejaChoisi("02_coeur")); 
+console.log(verifierCarteDejaChoisi("11_trefle")); 
