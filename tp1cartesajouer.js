@@ -76,3 +76,15 @@ function retournerCarteRecto(nomCarte) {
 }
 
 retournerCarteRecto("08_carreau");
+
+function carteHasard() {
+    // Générer un index aléatoire pour choisir une carte du jeu
+    let indexAleatoire = Math.floor(Math.random() * jeu.length);
+    // Récupérer la carte correspondante à l'index aléatoire
+    let carteAleatoire = jeu[indexAleatoire];
+    return carteAleatoire;
+}
+
+// Exemple d'appel de la fonction
+let carte = carteHasard();
+console.log(carte);
