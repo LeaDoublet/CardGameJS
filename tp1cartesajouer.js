@@ -56,3 +56,23 @@ function retournerCarteVerso(nomCarte) {
     }
 }
 retournerCarteVerso("08_carreau");
+
+function retournerCarteRecto(nomCarte) {
+    // On vérifie si la carte existe en recherchant son élément img par son ID
+    let carte = document.getElementById(nomCarte);
+    if (carte) {
+        // On vérifie si la carte est retournée côté verso
+        if (carte.classList.contains('verso')) {
+            // Changer le chemin de l'image pour afficher le recto
+            carte.src = 'cartes/' + nomCarte + '.gif';
+            // On enleve la classe qui indique que la carte est retournée côté verso
+            carte.classList.remove('verso');
+        } else {
+            console.log("La carte est déjà retournée côté recto.");
+        }
+    } else {
+        console.log("La carte avec le nom " + nomCarte + " n'existe pas.");
+    }
+}
+
+retournerCarteRecto("08_carreau");
