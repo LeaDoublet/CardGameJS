@@ -9,6 +9,7 @@ const jeu = [  "01_carreau","02_carreau","03_carreau","04_carreau","05_carreau",
  * c’est à dite le nom du fichier sans l’extension .gif :
 	<img id="04_pique" src="cartes/04_pique.gif"/>
  */
+/*
 // Création de l'élément img
 let imgCarte = document.createElement('img');
 
@@ -23,7 +24,7 @@ let conteneurCartes = document.getElementById('cartes');
 
 // Ajout de l'image au conteneur des cartes
 conteneurCartes.appendChild(imgCarte);
-
+*/
 function ajouterCarte(nomCarte) {
     // Création de l'élément img
     let imgCarte = document.createElement('img');
@@ -36,7 +37,7 @@ function ajouterCarte(nomCarte) {
     // Ajout de l'image au conteneur des cartes
     conteneurCartes.appendChild(imgCarte);
 }
-ajouterCarte("08_carreau");
+//ajouterCarte("08_carreau");
 
 function retournerCarteVerso(nomCarte) {
     //On regarde si la carte existe en recherchant son élément img par son ID
@@ -55,7 +56,7 @@ function retournerCarteVerso(nomCarte) {
         console.log("La carte avec le nom " + nomCarte + " n'existe pas.");
     }
 }
-retournerCarteVerso("08_carreau");
+//retournerCarteVerso("08_carreau");
 
 function retournerCarteRecto(nomCarte) {
     // On vérifie si la carte existe en recherchant son élément img par son ID
@@ -75,7 +76,7 @@ function retournerCarteRecto(nomCarte) {
     }
 }
 
-retournerCarteRecto("08_carreau");
+//retournerCarteRecto("08_carreau");
 
 function carteHasard() {
     // Générer un index aléatoire pour choisir une carte du jeu
@@ -97,4 +98,18 @@ function afficherCarte() {
     document.getElementById('cartes').appendChild(carteImg);
 }
 
-afficherCarte();
+//afficherCarte();
+
+function ajouterNCartes(n) {
+    // Vérifier si le nombre de cartes à ajouter est valide
+    if (n <= 0) {
+        console.log("Le nombre de cartes doit être supérieur à zéro.");
+        return;
+    }
+    // Ajouter n cartes à l'écran
+    for (let i = 0; i < n; i++) {
+        afficherCarte();
+    }
+}
+
+ajouterNCartes(10);
